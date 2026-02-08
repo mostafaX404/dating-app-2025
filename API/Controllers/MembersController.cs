@@ -19,6 +19,14 @@ namespace API.Controllers
             return users;
         }
 
+        [HttpGet("check")]
+        public async Task<IActionResult> Check()
+        {
+            var count = await context.Users.CountAsync();
+            return Ok(new { Count = count });
+        }
+
+
 
         [HttpGet("{id}")]
 
